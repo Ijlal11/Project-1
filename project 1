@@ -1,1 +1,9 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+    <title>demo</title>
+</head>
+
+<body>
+    <image style="height: 200px; width: 200px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZEb2VcK2kWP5_Yj9ml2VD6nKoOKz7HbnRnjj39ZN_DYL0CJHN93C0aPI&s" alt="Hii" />
