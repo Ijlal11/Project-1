@@ -1,0 +1,63 @@
+<section id="categories">
+  <div class="container p-5">
+    <app-message></app-message>
+
+    <div class="text-center mb-5">
+      <h2 class="display-4 font-weight-bold" style="color: #4a0080;">
+        🏔️ Shop by Category
+      </h2>
+      <p class="lead text-muted">Find exactly what you're looking for</p>
+      <hr style="border-color: #7b2ff7; width: 100px;">
+    </div>
+
+    <div *ngIf="!categories" class="text-center mt-5">
+      <div class="spinner"></div>
+    </div>
+
+    <div *ngIf="categories" class="row">
+      <div *ngFor="let category of categories" class="col-6 col-md-4 mb-4">
+        <a routerLink="/categories/{{ category._id }}" class="text-decoration-none">
+          <div class="card category-card text-center h-100 border-0 shadow-sm">
+
+            <div class="category-bg" [ngStyle]="{
+              'background-image': 'url(' + (
+                category.name === 'Outdoor Gear' ? 'https://tse3.mm.bing.net/th/id/OIP.-8AiDiPz9kpBl4dsuj575QHaE8?pid=Api&h=220&P=0' :
+                category.name === 'Footwear' ? 'https://tse1.mm.bing.net/th/id/OIP.HTPCXU0TOFrfyfqdBkHXsAHaFE?pid=Api&h=220&P=0' :
+                category.name === 'Bags & Backpacks' ? 'https://tse3.mm.bing.net/th/id/OIP.q5nTMMw-NEnKMvpHnBFexAHaIO?pid=Api&h=220&P=0' :
+                category.name === 'Camping Equipment' ? 'https://tse4.mm.bing.net/th/id/OIP.W0YkeEu8M0Jr3qj3XVpsNgHaFj?pid=Api&h=220&P=0' :
+                category.name === 'Climbing Gear' ? 'https://tse3.mm.bing.net/th/id/OIP.tnS9eQpAiA1DyW14re1VxgHaHE?pid=Api&h=220&P=0' :
+                category.name === 'Survival & Safety' ? 'https://tse2.mm.bing.net/th/id/OIP.xWq3_n6UmnGbj6cm4UhHmQHaE7?pid=Api&h=220&P=0' :
+                'https://tse3.mm.bing.net/th/id/OIP.-8AiDiPz9kpBl4dsuj575QHaE8?pid=Api&h=220&P=0'
+              ) + ')'
+            }">
+
+              <div class="category-overlay d-flex flex-column justify-content-center align-items-center">
+                <h5 class="category-title mb-0">{{ category.name }}</h5>
+                <span class="btn btn-sm btn-purple mt-2">Shop Now →</span>
+              </div>
+
+            </div>
+
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div *ngIf="data.user" class="card mt-5" style="border: 2px solid #7b2ff7; border-radius: 15px;">
+      <div class="card-body">
+        <h4 class="card-title" style="color: #4a0080;">
+          <i class="fa fa-plus-circle mr-2"></i> Add New Category
+        </h4>
+        <hr>
+        <div class="form-group">
+          <label>Category Name</label>
+          <input type="text" name="newCategory" class="form-control" [(ngModel)]="newCategory" placeholder="Enter category name...">
+        </div>
+        <button type="button" class="btn btn-primary" (click)="addCategory()" [disabled]="btnDisabled">
+          Add Category
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>

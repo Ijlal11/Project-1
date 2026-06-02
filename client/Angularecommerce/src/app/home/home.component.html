@@ -1,0 +1,71 @@
+<section id="home">
+
+  <!-- Hero Carousel with Hiking Images -->
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ngb-carousel>
+
+      <ng-template ngbSlide>
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=80')">
+          <div class="hero-overlay">
+            <h1 class="hero-title">Conquer Every Mountain</h1>
+            <p class="hero-subtitle">Premium outdoor gear for your adventures</p>
+            <a routerLink="/categories" class="btn btn-hero">Shop Now →</a>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template ngbSlide>
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1200&q=80')">
+          <div class="hero-overlay">
+            <h1 class="hero-title">Camp Under the Stars</h1>
+            <p class="hero-subtitle">Best camping equipment at great prices</p>
+            <a routerLink="/categories" class="btn btn-hero">Explore →</a>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template ngbSlide>
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1551632811-561732d1e306?w=1200&q=80')">
+          <div class="hero-overlay">
+            <h1 class="hero-title">Gear Up for Adventure</h1>
+            <p class="hero-subtitle">Everything you need for the great outdoors</p>
+            <a routerLink="/categories" class="btn btn-hero">View Categories →</a>
+          </div>
+        </div>
+      </ng-template>
+
+    </ngb-carousel>
+  </div>
+
+  <!-- Products Section -->
+  <div class="container p-5">
+    <app-message></app-message>
+
+    <div class="text-center mb-5">
+      <h2 style="color: #1a1a2e; font-weight: 700;">🏔️ Featured Products</h2>
+      <p class="text-muted">Top picks for your outdoor adventure</p>
+      <hr style="border-color: #00b4d8; width: 100px;">
+    </div>
+
+    <div class="row">
+      <div *ngIf="!products" class="m-auto">
+        <div class="spinner"></div>
+      </div>
+      <div *ngFor="let product of products" class="col-md-3 mb-5">
+        <a routerLink="/product/{{ product._id }}">
+          <div class="card">
+            <img src="{{ product.image }}" alt="product" 
+                 class="card-img-top" style="height: 200px; object-fit: cover;">
+            <div class="card-body">
+              <h5 class="card-title" style="color: #1a1a2e;">{{ product.title }}</h5>
+              <p class="card-text" style="color: #0077b6; font-weight: 600;">
+                {{ product.price | currency }}
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</section>

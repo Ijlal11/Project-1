@@ -1,0 +1,129 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-md navbar-dark bg-main">
+  <div class="container-fluid">
+
+    <!-- Logo -->
+    <a routerLink="/" class="navbar-brand">
+      🏔️ Mountain Store
+    </a>
+
+    <!-- Mobile Toggle Button -->
+    <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Content -->
+    <div [ngbCollapse]="isCollapsed" class="collapse navbar-collapse flex-column" style="margin-left: 50px;">
+
+      <!-- Search Bar -->
+      <div class="input-group w-75">
+        <input type="text" class="form-control" [(ngModel)]="searchTerm" (keyup.enter)="search()">
+        <span id="searchBtn" class="bg-warning" (click)="search()">
+          <i class="fa fa-search"></i>
+        </span>
+      </div>
+
+      <!-- Nav Links -->
+      <ul class="navbar-nav w-100">
+
+        <!-- Categories -->
+        <li class="nav-item ml-0 ml-md-auto">
+          <a routerLink="/categories" routerLinkActive="active" class="nav-link" (click)="collapse()">
+            <i class="fa fa-th-large mr-1"></i> Categories
+          </a>
+        </li>
+
+        <!-- Account Dropdown -->
+        <li class="nav-item ml-0 ml-md-auto" ngbDropdown #dropdown="ngbDropdown">
+          <a class="nav-link dropdown-toggle" ngbDropdownToggle>
+            <i class="fa fa-user mr-1"></i>
+            <!-- Show "Login / Register" if not logged in -->
+            <span *ngIf="!token">Login / Register</span>
+            <!-- Show user name if logged in -->
+            <span *ngIf="data.user">{{ data.user.name }}</span>
+          </a>
+
+          <!-- Dropdown Menu -->
+          <div ngbDropdownMenu class="dropdown-menu">
+
+            <!-- Show Profile if logged in -->
+            <a *ngIf="token" routerLink="/profile" class="dropdown-item"
+               (click)="closeDropdown(dropdown); collapse()">
+              <i class="fa fa-user-circle mr-1"></i> Profile
+            </a>
+
+            <!-- Show Login if not logged in -->
+            <a *ngIf="!token" routerLink="/login" class="dropdown-item"
+               (click)="closeDropdown(dropdown); collapse()">
+              <i class="fa fa-key mr-1"></i> Login
+            </a>
+
+            <!-- Show Register if not logged in -->
+            <a *ngIf="!token" routerLink="/register" class="dropdown-item"
+               (click)="closeDropdown(dropdown); collapse()">
+              <i class="fa fa-group mr-1"></i> Register
+            </a>
+
+            <!-- Show Logout if logged in -->
+            <a *ngIf="token" class="dropdown-item"
+               (click)="closeDropdown(dropdown); collapse(); logout()">
+              <i class="fa fa-key mr-1"></i> Logout
+            </a>
+
+          </div>
+        </li>
+
+        <!-- Cart -->
+        <li class="nav-item ml-0 ml-md-2">
+          <a routerLink="/cart" routerLinkActive="active" class="nav-link" (click)="collapse()">
+            <i class="fa fa-shopping-cart mr-1"></i> Cart
+            <!-- Show cart count badge -->
+            <span *ngIf="data.cartItems" class="badge badge-warning ml-1">
+              {{ data.cartItems }}
+            </span>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Content -->
+<router-outlet></router-outlet>
+
+<!-- Footer -->
+<footer id="main-footer" class="bg-main text-white mt-5 p-5">
+  <div class="container">
+    <div class="row text-center">
+
+      <!-- About -->
+      <div class="col-md-4">
+        <h5>🏔️ Mountain Store</h5>
+        <p>Your one stop shop for everything you need.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a routerLink="/categories" class="text-white">Categories</a></li>
+          <li><a routerLink="/login" class="text-white">Login</a></li>
+          <li><a routerLink="/register" class="text-white">Register</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-md-4">
+        <h5>Contact</h5>
+        <p><i class="fa fa-envelope mr-1"></i> info@mountainstore.com</p>
+        <p><i class="fa fa-phone mr-1"></i> +92 300 0000000</p>
+      </div>
+
+    </div>
+    <hr class="bg-white">
+    <p class="text-center mb-0">
+      Copyright &copy; 2026 Mountain Store | Developed by Ijlal Ahmed
+    </p>
+  </div>
+</footer>

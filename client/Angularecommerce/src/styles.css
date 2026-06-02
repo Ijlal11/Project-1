@@ -1,0 +1,91 @@
+/* Mountain Store - Purple Theme by Ijlal Ahmed */
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Main Purple Color */
+.bg-main {
+  background: linear-gradient(135deg, #4a0080, #7b2ff7) !important;
+}
+
+/* Navbar */
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.nav-link {
+  font-weight: 500;
+  color: white !important;
+}
+
+.nav-link:hover {
+  color: #f0c0ff !important;
+}
+
+/* Search Button */
+#searchBtn {
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #7b2ff7 !important;
+  border-color: #7b2ff7 !important;
+}
+
+.btn-primary:hover {
+  background-color: #4a0080 !important;
+  border-color: #4a0080 !important;
+}
+
+/* Cards */
+.card {
+  border: none !important;
+  border-radius: 15px !important;
+  box-shadow: 0 5px 15px rgba(123, 47, 247, 0.15) !important;
+  transition: transform 0.3s ease !important;
+}
+
+.card:hover {
+  transform: translateY(-5px) !important;
+}
+
+.card-title {
+  color: #4a0080 !important;
+  font-weight: 600 !important;
+}
+
+/* Footer */
+#main-footer {
+  background: linear-gradient(135deg, #4a0080, #7b2ff7) !important;
+}
+
+#main-footer a:hover {
+  color: #f0c0ff !important;
+}
+
+/* Links */
+a {
+  color: #7b2ff7;
+}
+
+a:hover {
+  color: #4a0080;
+}
+
+/* Page Headings */
+h1, h2, h3, h4, h5 {
+  color: #4a0080;
+}
+
+/* Badge */
+.badge-warning {
+  background-color: #ffd700 !important;}

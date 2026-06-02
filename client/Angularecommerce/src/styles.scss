@@ -1,0 +1,188 @@
+// Mountain Store - Black, White & Light Blue Theme by Ijlal Ahmed
+$main: #1a1a2e;
+$accent: #00b4d8;
+$accent-dark: #0077b6;
+$light: #f0f8ff;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* { font-family: 'Poppins', sans-serif; }
+
+// Navbar
+.bg-main {
+  background: linear-gradient(135deg, #1a1a2e, #16213e) !important;
+  border-bottom: 3px solid $accent;
+}
+
+body {
+  background-color: #f0f8ff !important;
+}
+
+a {
+  cursor: pointer;
+  color: $accent-dark;
+}
+
+a:hover {
+  text-decoration: none;
+  color: $accent;
+}
+
+button { cursor: pointer; }
+
+section { min-height: 600px; }
+
+h5 {
+  overflow-wrap: break-word;
+  color: $main;
+}
+
+// Cards
+.card {
+  border: none !important;
+  border-radius: 15px !important;
+  box-shadow: 0 5px 15px rgba(0,180,216,0.15) !important;
+  transition: transform 0.3s ease !important;
+}
+
+.card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 10px 25px rgba(0,180,216,0.3) !important;
+}
+
+// Buttons
+.btn-primary {
+  background-color: $accent !important;
+  border-color: $accent !important;
+  border-radius: 5px !important;
+  color: white !important;
+}
+
+.btn-primary:hover {
+  background-color: $accent-dark !important;
+  border-color: $accent-dark !important;
+}
+
+// Price color
+.text-warning {
+  color: $accent-dark !important;
+  font-weight: 600 !important;
+}
+
+// Badge
+.badge-warning {
+  background-color: $accent !important;
+  color: white !important;
+}
+
+// Footer
+#main-footer {
+  background: linear-gradient(135deg, #1a1a2e, #16213e) !important;
+  border-top: 3px solid $accent;
+}
+
+#main-footer a:hover {
+  color: $accent !important;
+}
+
+// Images
+.image {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+}
+
+// Stars
+.star {
+  position: relative;
+  display: inline-block;
+  font-size: 2rem;
+  color: #d3d3d3;
+}
+
+.full { color: $accent; }
+
+.half {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  color: $accent;
+}
+
+// Search button
+#searchBtn {
+  padding: 8px 15px;
+  cursor: pointer;
+  background-color: $accent !important;
+  color: white;
+}
+
+// Navbar links
+.nav-link {
+  color: white !important;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: $accent !important;
+}
+
+// Headings
+h1, h2, h3, h4 {
+  color: $main;
+}
+
+// Spinner
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #e0f0ff;
+  border-top: 5px solid $accent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 20px auto;
+}
+
+// Animations
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+router-outlet + * {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card { animation: slideUp 0.5s ease-in-out !important; }
+.card:nth-child(1) { animation-delay: 0.1s !important; }
+.card:nth-child(2) { animation-delay: 0.2s !important; }
+.card:nth-child(3) { animation-delay: 0.3s !important; }
+.card:nth-child(4) { animation-delay: 0.4s !important; }
+
+@keyframes navSlide {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.navbar { animation: navSlide 0.5s ease-in-out; }
+
+.card img {
+  transition: transform 0.3s ease !important;
+}
+
+.card:hover img {
+  transform: scale(1.05) !important;
+}
